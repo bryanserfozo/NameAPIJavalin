@@ -42,7 +42,7 @@ public class Driver {
 
                     ctx.status(201);
                 })
-                .get("/{name}", ctx ->{
+                .get("/names/{name}", ctx ->{
                     String nameSearch = ctx.pathParam("name");
                     if (names.keySet().contains(nameSearch)){
                         ctx.result(gson.toJson(nameSearch +": " + names.get(nameSearch)));
@@ -51,7 +51,7 @@ public class Driver {
                         ctx.result("Couldn't find that name in our server!");
                     }
                 })
-                .delete("/{name}", ctx -> {
+                .delete("/names/{name}", ctx -> {
                     String nameSearch = ctx.pathParam("name");
                     if (names.keySet().contains(nameSearch)){
                         names.remove(nameSearch);
